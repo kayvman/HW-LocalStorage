@@ -1,0 +1,41 @@
+We're taking applications for vigilantes. The included form needs the following:
+
+*localStorage*
+
+- All form data should be put in localStorage as the user is filling it out. Use the keyup event on text fields and the change event on select boxes.
+
+- Do not store the Vigilante Code. This is super sensitive data, so we don't want to risk it.
+
+- All information (except the Vigilante Code) should be as the user left it when they come back to the page.
+
+- Provide the user with a button to start over. This should clear the localStorage and reset all form elements.
+
+*Required Fields*
+
+- All fields are required except Primary Color and Blog URL.
+
+- Be sure to use the :required/:valid/:invalid selectors to style these required fields.
+
+*Validation*
+
+- The following validations must be performed using the pattern attribute:
+
+  - Age (numeric)
+  - Email (email format)
+  - Blog URL (url format)
+  - Vigilante Code (7 - 10 characters, letters & numbers only)
+  - Start Date (YYYY-MM-DD)
+
+  - Google the appropriate regular expressions. They don't have to be perfect (there isn't a *perfect* email validator anyway), but they should work for general cases. (Maybe start with Smashing Mag: http://coding.smashingmagazine.com/2009/06/01/essential-guide-to-regular-expressions-tools-tutorials-and-resources/)
+
+  - Be sure to use the :valid/:invalid selectors to style these validated fields.
+
+- All fields requiring validation should have a placeholder value showing the expected data format.
+
+*Style*
+
+- Make it look nice. If the UI isn't nice and usable, potential vigilantes will come and hunt you down.
+
+- Add as much markup as you like, but you must keep the labels and fieldsets.
+
+- Legends can be inconsistent to style, so you can replace those with headers/headings if you want.

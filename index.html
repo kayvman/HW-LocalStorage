@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="normalize.css" media="screen" />
+
+	<script src="modernizr-2.5.3.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+	<header>
+		<h1>Vigilante Application</h1>
+		<h2>2012 rev. #1b75</h2>
+	</header>
+
+	<section>
+		<form>
+			<fieldset>
+				<legend>Personal Information</legend>
+
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" />
+
+				<label for="age">Age</label>
+				<input type="number" name="age" id="age" />
+
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" />
+
+				<label for="dayjob">Day Job</label>
+				<input type="text" name="dayjob" id="dayjob" />
+
+				<label for="startdate">Start Date</label>
+				<input type="date" name="startdate" id="startdate" />
+
+				<label for="blogurl">Blog URL</label>
+				<input type="url" name="blogurl" id="blogurl" />
+			</fieldset>
+
+			<fieldset>
+				<legend>Vigilante Details</legend>
+
+				<label for="vigilantename">Name</label>
+				<input type="text" name="vigilantename" id="vigilantename" />
+
+				<label for="symbol">Symbol</label>
+				<input type="text" name="symbol" id="symbol" />
+
+				<label for="primarycolor">Primary Color</label>
+				<input type="color" name="primarycolor" id="primarycolor" />
+
+				<label for="motivations">Motivations</label>
+				<select name="motivations" id="motivations" multiple size="8">
+					<option value="parentskilled">Parents Killed In Front Me</option>
+					<!-- create at least 7 more vigilante motivations. must stay a multi-select. -->
+				</select>
+
+				<label for="weapon">Weapon of Choice</label>
+				<select name="weapon" id="weapon">
+					<option value=""></option>
+					<option value="fists">Bare Fists</option>
+					<!-- create at least 7 more weapon options. must stay a single select. -->
+				</select>
+
+				<label for="reason">Why Should We Choose You?</label>
+				<textarea name="reason" id="reason"></textarea>
+			</fieldset>
+
+			<fieldset>
+				<legend>Verification</legend>
+
+				<p>To ensure only qualified people apply, enter your pre-assigned unique vigilante invite code blow.</p>
+
+				<label for="code">Vigilante Code</label>
+				<input type="text" name="code" id="code" />
+			</fieldset>
+
+			<button type="submit" id="submit">Submit Application</button>
+		</form>
+	</section>
+	<footer>
+		&copy;2012 Vigilante Services Inc.
+	</footer>
+</div> <!-- /.wrapper -->
+
+<!-- KEEP THIS BELOW ALL MARKUP! -->
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	// put your javascript here!
+</script>
+
+</body>
+</html>
