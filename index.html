@@ -104,7 +104,33 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-	// put your javascript here!
+	// wait until the page is fully loaded to start firing our javascript
+	$(document).ready(function() {
+		// call function that will populate form with info from local storage
+		populate_form_with_stored_info();
+
+		// store the name every time a user types in the name field
+		$('#name').keyup(function() {
+			// only store the name if it's not blank
+			if ($('#name').val() != '') {
+				localStorage.setItem('name', $('#name').val());
+			}
+		});
+
+		// for an example of storing information from a multiple select,
+		// see line 266 from the objects demo from the slides 
+		// http://iam.colum.edu/Jon.Petto/ewt/local-storage/demo/objects.php
+	});
+
+	function populate_form_with_stored_info() {
+		// check for stored name
+		var stored_name = localStorage.getItem('name');
+		if (stored_name !== '') {
+			$('#name').val(stored_name);
+		}
+
+		// check for stored age...
+	}
 </script>
 
 </body>
