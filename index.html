@@ -14,8 +14,37 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<link rel="stylesheet" href="normalize.css" media="screen" />
+	
 
 	<script src="modernizr-2.5.3.js"></script>
+
+<style type="text/css">
+.wrapper {width:800px;margin-left:auto;margin-right: auto;background-color: #404040;color: white;}
+		
+		input:invalid, select:invalid {
+			border: 1px solid #f00;
+		}
+
+		input ~ span:after {
+			content: attr(title);
+			color: #f00;
+			margin-left: 4px;
+			opacity: 0;
+		}
+
+		input:invalid ~ span:after {
+			opacity: 1;
+		}
+
+
+
+		input:valid{
+			border: 1px solid #0f0;
+		}
+
+
+
+</style>
 </head>
 <body>
 
@@ -30,53 +59,69 @@
 			<fieldset>
 				<legend>Personal Information</legend>
 
-				<label for="name">Name</label>
-				<input type="text" name="name" id="name" />
+				<label for="name">Name</label>&nbsp;
+				<input type="text" name="name" id="name" placeholder="John Doe" input required="required" />
+&nbsp;&nbsp;
+				<label for="age">Age</label>&nbsp;
+				<input type="number" name="age" id="age" input required="required" pattern="(^-\d*\.?\d*[1-9]+\d*$)|(^-[1-9]+\d*\.\d*$)" placeholder="#number#" />
+&nbsp;&nbsp;
+				<label for="email">Email</label>&nbsp;
+				<input type="email" name="email" id="email" pattern="^([a-zA-Z0-9_\-\.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})" input required="required" placeholder="John@domain.com"/><br/><br/>
 
-				<label for="age">Age</label>
-				<input type="number" name="age" id="age" />
+				<label for="dayjob">Day Job</label>&nbsp;
+				<input type="text" name="dayjob" id="dayjob" input required="required" placeholder="Burger Boy/Girl"/>&nbsp;&nbsp;
 
-				<label for="email">Email</label>
-				<input type="email" name="email" id="email" />
-
-				<label for="dayjob">Day Job</label>
-				<input type="text" name="dayjob" id="dayjob" />
-
-				<label for="startdate">Start Date</label>
-				<input type="date" name="startdate" id="startdate" />
+				<label for="startdate">Start Date</label>&nbsp;
+				<input type="date" name="startdate" id="startdate" input required="required" pattern="^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$" placeholder="mm/dd/yyyy"  />
 
 				<label for="blogurl">Blog URL</label>
-				<input type="url" name="blogurl" id="blogurl" />
-			</fieldset>
+				<input type="url" name="blogurl" id="blogurl" placeholder="www.yourblog.com" pattern="(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?"  />
+
+				
+			</fieldset><br/>
 
 			<fieldset>
 				<legend>Vigilante Details</legend>
 
 				<label for="vigilantename">Name</label>
-				<input type="text" name="vigilantename" id="vigilantename" />
+				<input type="text" name="vigilantename" id="vigilantename" required="required" placeholder="Super Dude" />
 
 				<label for="symbol">Symbol</label>
-				<input type="text" name="symbol" id="symbol" />
+				<input type="text" name="symbol" id="symbol" required="required" placeholder="Omega" />
 
 				<label for="primarycolor">Primary Color</label>
-				<input type="color" name="primarycolor" id="primarycolor" />
+				<input type="color" name="primarycolor" id="primarycolor" placeholder="Red, Blue" /><br/><br/><br/>
 
 				<label for="motivations">Motivations</label>
-				<select name="motivations" id="motivations" multiple size="8">
+				<select name="motivations" id="motivations" multiple size="8" required="required">
 					<option value="parentskilled">Parents Killed In Front Me</option>
+					<option value="peoplesuck">People Generally Suck</option>
+					<option value="askedforlarge">I Asked For a LARGE Coke</option>
+					<option value="kidseggedhouse">Kids Egged My House</option>
+					<option value="chocolatepeanut">He Got Chocolate on My Peanut Butter</option>
+					<option value="parentsgrand">Parents Keep Asking for Grandchildren</option>
+					<option value="cantfindkeys">Can't Find My keys</option>
+					<option value="gotsplinter">I Got a Splinter</option>
 					<!-- create at least 7 more vigilante motivations. must stay a multi-select. -->
 				</select>
 
 				<label for="weapon">Weapon of Choice</label>
-				<select name="weapon" id="weapon">
-					<option value=""></option>
+				<select name="weapon" id="weapon" placeholder="Choose One" required="required" >
+					<option value="">Choose Wisely</option>
 					<option value="fists">Bare Fists</option>
+					<option value="testicles">Bare Testicles</option>
+					<option value="laser">Eye Laser</option>
+					<option value="touch">5 Finger Death Touch</option>
+					<option value="fart">Fatal Flatulence</option>
+					<option value="burp">Brutal Belch</option>
+					<option value="claws">Finger Claws</option>
+					<option value="looks">Dashing Good Looks</option>
 					<!-- create at least 7 more weapon options. must stay a single select. -->
-				</select>
+				</select><br/><br/>
 
 				<label for="reason">Why Should We Choose You?</label>
-				<textarea name="reason" id="reason"></textarea>
-			</fieldset>
+				<textarea name="reason" id="reason" placeholder="Gimme One Good Reason Bub" required="required"></textarea>
+			</fieldset><br/>
 
 			<fieldset>
 				<legend>Verification</legend>
@@ -84,10 +129,11 @@
 				<p>To ensure only qualified people apply, enter your pre-assigned unique vigilante invite code blow.</p>
 
 				<label for="code">Vigilante Code</label>
-				<input type="text" name="code" id="code" />
+				<input type="text" name="code" id="code" pattern="^([a-zA-Z0-9]{7,10})$" placeholder="7 to 10 Characters" required="required" />
 			</fieldset>
 
 			<button type="submit" id="submit">Submit Application</button>
+			<button type="reset" id="clear" value="Reset Form">Clear Application</button>
 		</form>
 	</section>
 	<footer>
@@ -117,6 +163,87 @@
 			}
 		});
 
+		$('#age').change(function() {
+			
+			if ($('#age').val() != '') {
+				localStorage.setItem('age', $('#age').val());
+			}
+		});
+
+		$('#email').keyup(function() {
+			
+			if ($('#email').val() != '') {
+				localStorage.setItem('email', $('#email').val());
+			}
+		});
+
+		$('#dayjob').keyup(function() {
+			
+			if ($('#dayjob').val() != '') {
+				localStorage.setItem('dayjob', $('#dayjob').val());
+			}
+		});
+
+		$('#startdate').keyup(function() {
+			
+			if ($('#startdate').val() != '') {
+				localStorage.setItem('startdate', $('#startdate').val());
+			}
+		});
+
+		$('#blogurl').keyup(function() {
+			
+			if ($('#blogurl').val() != '') {
+				localStorage.setItem('blogurl', $('#blogurl').val());
+			}
+		});
+
+		$('#vigilantename').keyup(function() {
+			
+			if ($('#vigilantename').val() != '') {
+				localStorage.setItem('vigilantename', $('#vigilantename').val());
+			}
+		});
+
+		$('#symbol').keyup(function() {
+			
+			if ($('#symbol').val() != '') {
+				localStorage.setItem('symbol', $('#symbol').val());
+			}
+		});
+
+		$('#primarycolor').keyup(function() {
+			
+			if ($('#primarycolor').val() != '') {
+				localStorage.setItem('primarycolor', $('#primarycolor').val());
+			}
+		});
+
+		$('#motivations').change(function() {
+			Choice.motivations = [];
+			for (var i = 0; i < Choice.motivations[0].options.length; i++) {
+
+				if (Choice.motivations[0].options[i].selected) {
+					Choice.motivations.push(Choice.motivations[0].options[i].value);
+					update_motivations();
+				}
+			}
+
+		});
+
+		$('#weapon').change(function() {
+			Choice.weapon = [];
+			for (var i = 0; i < Choice.weapon[0].options.length; i++) {
+
+				if (Choice.weapon[0].options[i].selected) {
+					Choice.weapon.push(Choice.weapon[0].options[i].value);
+					update_weapon();
+				}
+			}
+
+		});
+
+
 		// for an example of storing information from a multiple select,
 		// see line 266 from the objects demo from the slides 
 		// http://iam.colum.edu/Jon.Petto/ewt/local-storage/demo/objects.php
@@ -129,8 +256,68 @@
 			$('#name').val(stored_name);
 		}
 
+		var stored_age = localStorage.getItem('age');
+		if (stored_age !== '') {
+			$('#age').val(stored_age);
+		}
+
+		var stored_email = localStorage.getItem('email');
+		if (stored_email !== '') {
+			$('#email').val(stored_age);
+		}
+
+		var stored_dayjob = localStorage.getItem('dayjob');
+		if (stored_dayjob !== '') {
+			$('#dayjob').val(stored_dayjob);
+		}
+
+		var stored_startdate = localStorage.getItem('startdate');
+		if (stored_startdate !== '') {
+			$('#startdate').val(stored_startdate);
+		}
+
+		var stored_blogurl = localStorage.getItem('blogurl');
+		if (stored_startdate !== '') {
+			$('#blogurl').val(stored_blogurl);
+		}
+
+		var stored_vigilantename = localStorage.getItem('vigilantename');
+		if (stored_vigilantename !== '') {
+			$('#vigilantename').val(stored_vigilantename);
+		}
+
+		var stored_symbol = localStorage.getItem('symbol');
+		if (stored_vigilantename !== '') {
+			$('#symbol').val(stored_symbol);
+		}
+
+		var stored_primarycolor = localStorage.getItem('primarycolor');
+		if (stored_primarycolor !== '') {
+			$('#primarycolor').val(stored_primarycolor);
+		}
+
+		var stored_motivations = localStorage.getItem('motivations');
+		if (stored_motivations != '')
+		{
+			console.log(stored_motivations);
+			JSON.stringify(stored_motivations);
+			console.log(stored_motivations);
+			$('#motivations').val(stored_motivations);
+		}
+
+		//clear.click(function(e) {
+
+			//e.preventDefault();
+
+
+
+			//window.localStorage.clear();
+
+
 		// check for stored age...
 	}
+
+
 </script>
 
 </body>
