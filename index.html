@@ -133,7 +133,7 @@
 			</fieldset>
 
 			<button type="submit" id="submit">Submit Application</button>
-			<button type="reset" id="clear" value="Reset Form">Clear Application</button>
+			<button type="reset" id="clear_stor" onClick="javascript:reset_me();" value="Reset Form">Clear Application</button>
 		</form>
 	</section>
 	<footer>
@@ -152,8 +152,15 @@
 <script type="text/javascript">
 	// wait until the page is fully loaded to start firing our javascript
 	$(document).ready(function() {
+		
+		$('#clear_stor').click(function reset_me(){
+ localStorage.clear();})
+
+
 		// call function that will populate form with info from local storage
 		populate_form_with_stored_info();
+
+
 
 		// store the name every time a user types in the name field
 		$('#name').keyup(function() {
@@ -218,36 +225,69 @@
 				localStorage.setItem('primarycolor', $('#primarycolor').val());
 			}
 		});
+	$('#motivations').change(function() {
+	var selected = [];
 
-		$('#motivations').change(function() {
-			Choice.motivations = [];
-			for (var i = 0; i < Choice.motivations[0].options.length; i++) {
+		$('#motivations option').each(function() {
+		// if it's selected, add it to the array above
+		if (this.selected) {
+			selected.push(this.value);
+		}
+	});
 
-				if (Choice.motivations[0].options[i].selected) {
-					Choice.motivations.push(Choice.motivations[0].options[i].value);
-					update_motivations();
-				}
+	// store the array of selected options
+	localStorage.setItem('motivations', JSON.stringify(selected));
+});
+
+// check for stored motivations
+var stored_motivations = JSON.parse(localStorage.getItem('motivations'));
+if (stored_motivations !== null) {
+	$('#motivations option').each(function() {
+		for (var i = 0; i < stored_motivations.length; i++) {
+			if (this.value == stored_motivations[i]) {
+				this.selected = true;
 			}
-
-		});
+		}
+	});
+}
 
 		$('#weapon').change(function() {
-			Choice.weapon = [];
-			for (var i = 0; i < Choice.weapon[0].options.length; i++) {
+	var selected = [];
 
-				if (Choice.weapon[0].options[i].selected) {
-					Choice.weapon.push(Choice.weapon[0].options[i].value);
-					update_weapon();
-				}
+		$('#weapon option').each(function() {
+		// if it's selected, add it to the array above
+		if (this.selected) {
+			selected.push(this.value);
+		}
+	});
+
+	// store the array of selected options
+	localStorage.setItem('weapon', JSON.stringify(selected));
+});
+
+// check for stored motivations
+var stored_weapon = JSON.parse(localStorage.getItem('weapon'));
+if (stored_weapon !== null) {
+	$('#weapon option').each(function() {
+		for (var i = 0; i < stored_weapon.length; i++) {
+			if (this.value == stored_weapon[i]) {
+				this.selected = true;
 			}
+		}
+	});
 
-		});
+
+
+}
+
+
 
 
 		// for an example of storing information from a multiple select,
 		// see line 266 from the objects demo from the slides 
 		// http://iam.colum.edu/Jon.Petto/ewt/local-storage/demo/objects.php
 	});
+
 
 	function populate_form_with_stored_info() {
 		// check for stored name
@@ -305,16 +345,10 @@
 			$('#motivations').val(stored_motivations);
 		}
 
-		//clear.click(function(e) {
-
-			//e.preventDefault();
+		
 
 
-
-			//window.localStorage.clear();
-
-
-		// check for stored age...
+		//check for stored age...
 	}
 
 
